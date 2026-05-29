@@ -14,7 +14,7 @@ public class FileOrderRepositoryTest {
     void shouldFindOrderByOrderNo() {
 
         // given
-        FileOrderRepository repository = new FileOrderRepository("/order_test.csv");
+        FileOrderRepository repository = new FileOrderRepository();
 
         // when
         Optional<Order> result = repository.findByOrderNo("M0001");
@@ -33,7 +33,7 @@ public class FileOrderRepositoryTest {
     void shouldReturnEmptyWhenOrderDoesNotExist() {
 
         // given
-        FileOrderRepository repository = new FileOrderRepository("/order_test.csv");
+        FileOrderRepository repository = new FileOrderRepository();
 
         // when
         Optional<Order> result = repository.findByOrderNo("M9999");

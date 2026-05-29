@@ -5,22 +5,23 @@
 
     <parent>
         <groupId>com.mamezou.sample</groupId>
-        <artifactId>maven3-order-parent</artifactId>
-        <version>${revision}${changelist}</version>
+        <artifactId>maven4-order-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>maven3-order-web</artifactId>
+    <artifactId>maven4-order-web</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.mamezou.sample</groupId>
-            <artifactId>maven3-order-application</artifactId>
+            <artifactId>maven4-order-application</artifactId>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.mamezou.sample</groupId>
-            <artifactId>maven3-order-infrastructure</artifactId>
+            <artifactId>maven4-order-infrastructure</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
@@ -71,20 +72,6 @@
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.11.2</version>
-                <executions>
-                    <execution>
-                        <id>generate-javadoc</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>javadoc</goal>
                         </goals>
                     </execution>
                 </executions>

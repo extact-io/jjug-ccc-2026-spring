@@ -4,9 +4,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import lombok.Value;
 
-/**
- * 注文。
- */
 @Value
 public class Order {
 
@@ -15,9 +12,6 @@ public class Order {
     private int productId;
     private int amount;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
