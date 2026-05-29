@@ -1,12 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 https://maven.apache.org/xsd/maven-4.1.0.xsd">
+
+    <modelVersion>4.1.0</modelVersion>
 
     <parent>
-        <groupId>com.mamezou.sample</groupId>
-        <artifactId>maven4-order-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>maven4-order-web</artifactId>
@@ -15,7 +13,6 @@
         <dependency>
             <groupId>com.mamezou.sample</groupId>
             <artifactId>maven4-order-application</artifactId>
-            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -72,6 +69,20 @@
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+                <executions>
+                    <execution>
+                        <id>generate-javadoc</id>
+                        <phase>before:compile</phase>
+                        <goals>
+                            <goal>javadoc</goal>
                         </goals>
                     </execution>
                 </executions>

@@ -15,28 +15,45 @@ import org.apache.commons.csv.CSVRecord;
 import com.mamezou.sample.domain.OrderRepository;
 import com.mamezou.sample.domain.model.Order;
 
+/**
+ * オーダーをファイルに永続化する。
+ */
 public class FileOrderRepository implements OrderRepository {
 
     private Map<String, Order> orderMap;
 
+    /**
+     * コンストラクタ。
+     */
     public FileOrderRepository() {
+        this("/order.csv");
+    }
+
+    /**
+     * コンストラクタ。
+     * @param path リソースパス
+     */
+    public FileOrderRepository(String path) {
        try {
-           initLoad();
+           initLoad(path);
        } catch (IOException e) {
            throw new IllegalStateException(e);
        }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Optional<Order> findByOrderNo(String no) {
         return Optional.ofNullable(orderMap.get(no));
     }
 
-    private void initLoad() throws IOException {
+    private void initLoad(String path) throws IOException {
 
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        getClass().getResourceAsStream("/order.csv"),
+                        getClass().getResourceAsStream(path),
                         StandardCharsets.UTF_8))) {
 
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(reader);

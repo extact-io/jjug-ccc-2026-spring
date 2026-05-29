@@ -22,7 +22,8 @@ public class OrderWebApiIntegrationTest {
         // then
         assertThat(result).isNotNull();
         assertThat(result.getOrderNo()).isEqualTo("M0001");
-        assertThat(result.getCustomerName()).isEqualTo("CUSTOMER_1");
+        assertThat(result.getCustomerName()).isEqualTo("お客様1号");
+        //assertThat(result.getCustomerName()).isEqualTo("お客様2号");
         assertThat(result.getProductId()).isEqualTo(101);
         assertThat(result.getAmount()).isEqualTo(3);
     }
