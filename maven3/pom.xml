@@ -8,7 +8,6 @@
     <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
 
-
     <modules>
         <module>order-bom</module>
         <module>order-application</module>
